@@ -1,7 +1,9 @@
 import Head from 'next/head';
+import ReactMarkdown from 'react-markdown';
 
 import Layout from '../../components/layout';
 import Date from '../../components/date'
+import CodeBlock from "../../components/codeblock"
 
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import utilStyles from '../../styles/utils.module.css'
@@ -22,7 +24,28 @@ export async function getStaticProps({params}) {
   };
 }
 
+const components = {
+  code({node, inline, className, children, ...props}) {
+
+    if(className === 'inline-code') return children;
+
+    if(inline){
+      return <code className="inline-code">{children}</code>;
+    }
+    const isCodeBlock = node.tagName === 'code';
+    const isInlineSnippet = inline;
+    const value = children;
+    const language = className?.replace("language-", "");
+
+    return <CodeBlock
+      language={language}
+      value={value}
+    />
+  }
+}
+
 export default function Post({ postData }) {
+  console.log({markdown: postData.contentMarkdown})
   return (
     <Layout noHeader={true}>
       <Head>
@@ -34,7 +57,11 @@ export default function Post({ postData }) {
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <ReactMarkdown
+          children={postData.contentMarkdown}
+          components={components}
+        />
+        {/*<div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />*/}
       </article>
 
     </Layout>
