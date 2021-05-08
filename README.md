@@ -24,18 +24,6 @@ yarn dev:export
 
 ### Todo
 
-- [ ] Fix for image export 
-
-  - Problem 
-
-    ```bash
-    
-    yarn export 
-    # Error: Image Optimization using Next.js' default loader is not compatible with `next export`.
-    ```
-
-    Solution: https://github.com/vercel/next.js/issues/18356#issuecomment-803843108
-
 - [ ] how to add scss ?
 
 - [ ] Image handling
@@ -56,6 +44,20 @@ yarn dev:export
   - [ ] Allow having bookmarks to anchors in page
 
 - [ ] how to add external html pages ?
+
+- [x] Fix for image export 
+
+  - Problem 
+
+    ```bash
+    
+    yarn export 
+    # Error: Image Optimization using Next.js' default loader is not compatible with `next export`.
+    ```
+
+    Solution: https://github.com/vercel/next.js/issues/18356#issuecomment-803843108
+
+- [ ] 
 
 
 

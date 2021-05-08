@@ -23,3 +23,5 @@ Static code generation is awesome.
 const string = "hello";
 console.log(string);
 ```
+
+![image-20201106220446319](images/dance-of-joy.gif)
