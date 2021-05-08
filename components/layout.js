@@ -1,22 +1,22 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+
+const profileIMage = require('../public/images/profile.png');
 
 const name = 'nishants'
 export const siteTitle = "nishant's blog";
 
 export default function Layout({ children, home, noHeader= false }) {
+
   let header = <header className={styles.header}>
     {home ? (
       <>
-        <Image
-          priority
-          src="/images/profile.png"
+        <img
+          src={profileIMage}
           className={utilStyles.borderCircle}
-          height={144}
-          width={144}
+          style={{height: "144px", width: "144px"}}
           alt={name}
         />
         <h1 className={utilStyles.heading2Xl}>{name}</h1>
@@ -25,12 +25,10 @@ export default function Layout({ children, home, noHeader= false }) {
       <>
         <Link href="/">
           <a>
-            <Image
-              priority
-              src="/images/profile.png"
+            <img
+              src={profileIMage}
               className={utilStyles.borderCircle}
-              height={108}
-              width={108}
+              style={{height: "108px", width: "108px"}}
               alt={name}
             />
           </a>

@@ -48,6 +48,67 @@ Strage errors:
 
   
 
+- **[Render markdown as html](./Lessons/06-next-config.md)**
+
+  > - Install `remark` and ` remark-html` 
+  > - Return post content as html
+
+
+
+- Config: https://nextjs.org/docs/api-reference/next.config.js/introduction
+
+
+
+```
+06-next-config.md
+```
+
+
+
+### Todo
+
+- [ ] Fix for image export 
+
+  - Problem 
+
+    ```bash
+    
+    yarn export 
+    # Error: Image Optimization using Next.js' default loader is not compatible with `next export`.
+    ```
+
+    Solution: https://github.com/vercel/next.js/issues/18356#issuecomment-803843108
+
+- [ ] how to add scss ?
+
+- [ ] Image handling
+
+  - [ ] copy images in markdown from relative path
+  - [ ] copy images to relative path in public
+  - [ ] change the relative paths in module
+
+- [ ] Custom html 
+
+  - [ ] Currently they are shown on page as html.
+  - [ ] Ignore them
+  - [ ] Add custom react component to handle html component
+
+- [ ] Custom links
+
+  - [ ] Allow having anchors in page 
+  - [ ] Allow having bookmarks to anchors in page
+
+- [ ] how to add external html pages ?
+
+
+
+- Syntax highlighting using 
+
+  - react-syntax-highlighter: https://github.com/react-syntax-highlighter/react-syntax-highlighter
+  - react-markdown: https://github.com/remarkjs/react-markdown
+
+- Custom markdown compoennts : 
+
   
 
   > - Creating dynamic routes
