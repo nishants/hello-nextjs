@@ -65,12 +65,12 @@ Todo
 - [ ] how to add scss ?
 - [ ] how to generate static link ? 
 - [ ] how to add external html pages ?
-- [ ] Create custom component in markdown ?
-  - [ ] https://www.npmjs.com/package/html-to-react
+- [x] Create custom component in markdown ?
+  - [x] https://www.npmjs.com/package/html-to-react
 
 
 
-- [ ] how to add syntax highlighting ? 
+- [x] how to add syntax highlighting ? 
   - highlight 
     - https://github.com/remarkjs/remark-highlight.js
     - demo: 

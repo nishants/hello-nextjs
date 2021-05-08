@@ -32,20 +32,17 @@ const components = {
     if(inline){
       return <code className="inline-code">{children}</code>;
     }
-    const isCodeBlock = node.tagName === 'code';
-    const isInlineSnippet = inline;
-    const value = children;
+
     const language = className?.replace("language-", "");
 
     return <CodeBlock
       language={language}
-      value={value}
+      value={children}
     />
   }
 }
 
 export default function Post({ postData }) {
-  console.log({markdown: postData.contentMarkdown})
   return (
     <Layout noHeader={true}>
       <Head>
