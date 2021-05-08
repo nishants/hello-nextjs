@@ -56,10 +56,10 @@ export default function Post({ postData }) {
         </div>
         <ReactMarkdown
           transformImageUri={(src, alt, title) => {
-            return src.substring(src.indexOf('/posts'));
+            return "/assets" + src.substring(src.indexOf('/posts'));
           }}
           transformLinkUri={(href, children, title) => {
-            return "transformed/" + href;
+            return href;
           }}
           children={postData.contentMarkdown}
           components={components}

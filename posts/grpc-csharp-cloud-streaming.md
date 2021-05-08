@@ -13,7 +13,7 @@ In this workshop we will create a grpc streaming server, consume it using a web 
 - Azure CLI
 - Azure Kubernetes Service
 
-![image-20201108215055329](../public/posts/grpc-csharp-cloud-streaming/overall-design.png)
+![image-20201108215055329](../public/assets/posts/grpc-csharp-cloud-streaming/overall-design.png)
 
 
 
@@ -197,7 +197,7 @@ Just like we can use postman to test an HTTP endpoint, we will use [BloomRPC](ht
 
 Download and open the app from [here](https://appimage.github.io/BloomRPC). 
 
-![image-20201106215735673](./../public/posts/grpc-csharp-cloud-streaming/bloom-first-run.gif)
+![image-20201106215735673](./../public/assets/posts/grpc-csharp-cloud-streaming/bloom-first-run.gif)
 
 
 
@@ -435,7 +435,7 @@ docker run -p 5000:80 server
 
 Now in BloomRPC, click on **+** icon and add our `Service/Protos/prices.proto`
 
-![image-20201106220446319](./../public/posts/grpc-csharp-cloud-streaming/bloomrpc-stream-hd.gif)
+![image-20201106220446319](./../public/assets/posts/grpc-csharp-cloud-streaming/bloomrpc-stream-hd.gif)
 
 
 
@@ -559,7 +559,7 @@ dotnet run
 
 Now open open http://localhost:5000/ and check app
 
-![image-20201108150718402](../public/posts/grpc-csharp-cloud-streaming/new-web-app.png)
+![image-20201108150718402](../public/assets/posts/grpc-csharp-cloud-streaming/new-web-app.png)
 
 
 
@@ -830,7 +830,7 @@ dotnet run --urls=http://localhost:3000/
 
 Open http://localhost:3000/ to check our page.
 
-![image-20201106220446319](./../public/posts/grpc-csharp-cloud-streaming/webapp-streaming.gif)
+![image-20201106220446319](./../public/assets/posts/grpc-csharp-cloud-streaming/webapp-streaming.gif)
 
 <a name="containerize-web-app"></a>
 
@@ -927,7 +927,7 @@ docker push nishants/stream-web-app:v0.1
 
 Open docker hub and make sure your image is publicly accessible:
 
-![image-20201108205911141](../public/posts/grpc-csharp-cloud-streaming/dockerhub-public-images.png)
+![image-20201108205911141](../public/assets/posts/grpc-csharp-cloud-streaming/dockerhub-public-images.png)
 
 
 
@@ -1096,7 +1096,7 @@ Opent the external ip of your endpoint in browser. For e.g. for above output it 
 
 
 
-![image-20201106220446319](./../public/posts/grpc-csharp-cloud-streaming/webapp-streaming-aks.gif)
+![image-20201106220446319](./../public/assets/posts/grpc-csharp-cloud-streaming/webapp-streaming-aks.gif)
 
 **Delete your cluster** 
 
@@ -1109,7 +1109,7 @@ az group delete --name $RESOURCE_GROUP --yes --no-wait
 
 # This is it !
 
-![image-20201106220446319](./../public/posts/grpc-csharp-cloud-streaming/dance-of-joy.gif)
+![image-20201106220446319](./../public/assets/posts/grpc-csharp-cloud-streaming/dance-of-joy.gif)
 
 
 
