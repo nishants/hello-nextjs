@@ -22,6 +22,17 @@ yarn dev:export
 
 
 
+TODO
+
+- [ ] Creating public assets from markdown
+  - [ ] abstract tree parse a markdown
+  - [ ] remove all relative paths in image and put to `public/posts/<id>/`
+  - [ ] update the markdown to use new paths
+  - [ ] transform urls in actual
+- [ ] 
+
+
+
 ### Todo
 
 - [ ] Fix for image export 

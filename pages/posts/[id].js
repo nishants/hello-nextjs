@@ -55,6 +55,12 @@ export default function Post({ postData }) {
           <Date dateString={postData.date} />
         </div>
         <ReactMarkdown
+          transformImageUri={(src, alt, title) => {
+            return src.substring(src.indexOf('/posts'));
+          }}
+          transformLinkUri={(href, children, title) => {
+            return "transformed/" + href;
+          }}
           children={postData.contentMarkdown}
           components={components}
         />
