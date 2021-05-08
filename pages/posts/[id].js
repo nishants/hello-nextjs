@@ -8,6 +8,8 @@ import CodeBlock from "../../components/codeblock"
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import utilStyles from '../../styles/utils.module.css'
 
+import * as styles from'./posts.scss';
+
 // Return a list of possible value for id https://nextjs.org/docs/basic-features/data-fetching#the-paths-key-required
 export async function getStaticPaths() {
   const paths = getAllPostIds();
@@ -43,6 +45,7 @@ const components = {
 }
 
 export default function Post({ postData }) {
+  console.log({styles})
   return (
     <Layout noHeader={true}>
       <Head>
