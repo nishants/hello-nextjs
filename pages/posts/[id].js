@@ -1,6 +1,10 @@
 import Head from 'next/head';
 import ReactMarkdown from 'react-markdown';
 
+// styling support
+import gfm from 'remark-gfm';
+import externalLinks from 'remark-external-links';
+
 import Layout from '../../components/layout';
 import Date from '../../components/date'
 import CodeBlock from "../../components/codeblock"
@@ -23,6 +27,7 @@ export async function getStaticProps({params}) {
     props: {postData},
   };
 }
+
 
 const components = {
   code({node, inline, className, children, ...props}) {
@@ -55,6 +60,10 @@ export default function Post({ postData }) {
           <Date dateString={postData.date} />
         </div>
         <ReactMarkdown
+          remarkPlugins={[
+            [gfm],
+            [externalLinks, {target: '_blank', rel: ['nofollow']}]
+          ]}
           transformImageUri={(src, alt, title) => {
             return "/assets" + src.substring(src.indexOf('/posts'));
           }}
@@ -64,7 +73,6 @@ export default function Post({ postData }) {
           children={postData.contentMarkdown}
           components={components}
         />
-        {/*<div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />*/}
       </article>
 
     </Layout>
