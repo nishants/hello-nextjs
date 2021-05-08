@@ -4,64 +4,21 @@
 
 
 
-Strage errors: 
+Running on local : 
 
-- unused functions exported and imported can results in very very weird errors e.g. `module fs not found`
-
-
-
-### Lessons
-
-- **[Setup](./Lessons/01-Setup.md)**
-
-  > - Create new project 
-  > - View default files created
-  > - Customize image, description, site title
-
-- Pre-rendering
-
-  > - By default pre-renders pages (generates html in advance)
-  > - Minimal js created for each page.
-  > - hydarates rendered-html pages on page load.
-
--  **[Static Site Generation](./Lessons/02-static-site-generation.md)**
-
-  > - Use `getStaticProps` to run async function and pass props at build time
-  
-- **[Using markdown metadata](./Lessons/03-md-metadata.md)**
-
-  > - Use `gray-matter` to read markdown metadata
-  > - Creating dynamic routes in `pages/index.js`
-  
-- **[Create Page and Routes](./Lessons/04-create-page-and-routes.md)**
-
-  > - Create route `/posts/params.id` by creating `posts/[id].js`
-  > - Export `getStaticPaths` to set possible values of params for route `/posts`
-  > - Export `getStaticProps` to create page props based on `params`
-  
-  
-  
-- **[Render markdown as html](./Lessons/05-render-markdown.md)**
-
-  > - Install `remark` and ` remark-html` 
-  > - Return post content as html
-
-  
-
-- **[Render markdown as html](./Lessons/06-next-config.md)**
-
-  > - Install `remark` and ` remark-html` 
-  > - Return post content as html
+```bash
+yarn dev
+```
 
 
 
-- Config: https://nextjs.org/docs/api-reference/next.config.js/introduction
-
-
+Generate static website and test on local : 
 
 ```
-06-next-config.md
+yarn dev:export
 ```
+
+
 
 
 

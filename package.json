@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "dev:export": "npm run build && npm run export && http-server ./out"
   },
   "dependencies": {
     "date-fns": "^2.21.3",
@@ -30,5 +31,9 @@
     "responsive-loader": "^2.3.0",
     "svg-sprite-loader": "^6.0.6",
     "webp-loader": "^0.6.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "http-server": "^0.12.3"
   }
 }
