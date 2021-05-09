@@ -6,8 +6,8 @@ import gfm from 'remark-gfm';
 import externalLinks from 'remark-external-links';
 
 import Layout from '../../components/layout';
-import Date from '../../components/date'
-import CodeBlock from "../../components/codeblock"
+import DateStamp from '../../components/DateStamp'
+import CodeBlock from "../../components/CodeBlock"
 import {isRunnerBlock} from "../../components/CodeRunner"
 
 import dynamic from 'next/dynamic'
@@ -69,7 +69,7 @@ export default function Post({ postData }) {
       <article>
         <h1 className={utilStyles.headingXl}>{postData.title}</h1>
         <div className={utilStyles.lightText}>
-          <Date dateString={postData.date} />
+          <DateStamp dateString={postData.date} />
         </div>
         <ReactMarkdown
           remarkPlugins={[

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 import Layout, { siteTitle } from '../components/layout'
-import Date from '../components/date'
+import DateStamp from '../components/DateStamp'
 
 import utilStyles from '../styles/utils.module.css'
 import {getSortedPostsData} from '../lib/posts';
@@ -43,7 +43,7 @@ export default function Home(props) {
                 </Link>
                 <br />
                 <small className={utilStyles.lightText}>
-                  <Date dateString={post.date} />
+                  <DateStamp dateString={post.date} />
                 </small>
               </li>
             );

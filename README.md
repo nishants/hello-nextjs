@@ -2,6 +2,8 @@
 
 # Getting started
 
+[![Build Status](https://dev.azure.com/nishantsingh870743/nishants.in/_apis/build/status/nishants.nishants.in?branchName=master)](https://dev.azure.com/nishantsingh870743/nishants.in/_build/latest?definitionId=4&branchName=master)
+
 
 
 Running on local : 
