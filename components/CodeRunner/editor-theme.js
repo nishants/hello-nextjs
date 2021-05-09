@@ -1,3 +1,5 @@
+// Theme demo: https://monaco-react.surenatoyan.com/
+
 const theme = {
   "base": "vs-dark",
   "inherit": true,
