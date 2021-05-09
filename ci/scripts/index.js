@@ -107,8 +107,7 @@ const ensureEnvDefined = (envVarName) => {
 
   const bucketName = process.env.S3_BUCKET_NAME;
   const fromDir = process.argv[2];
-  const toBucketPath = process.argv[3];
-  const cacheInvalidationReason = 'Deployment for ${process.env.DEPLOYMENT_ID}';
+  const toBucketPath = process.argv[3] || "";
 
   console.log("Starting deployment with following parameters : ")
   console.log("Arguments", process.argv.slice(2));
@@ -118,8 +117,16 @@ const ensureEnvDefined = (envVarName) => {
   console.log("Files to upload: ", await getAllFilesInDirRecursively(fromDir));
 
   await uploadPathToBucket(bucketName, fromDir, toBucketPath);
-  await invalidatePath(
-    `/${toBucketPath}/*`,
-    cacheInvalidationReason);
+
+  // Invalidate CDN cache
+  let cacheInvalidationPath = `/${toBucketPath}/*`;
+  if(toBucketPath === ""){
+    cacheInvalidationPath  = "/*";
+  }
+
+  // has to be unique for every invalidation request
+  const cacheInvalidationReason = `Deployment for ${process.env.DEPLOYMENT_ID}`;
+
+  await invalidatePath(cacheInvalidationPath, cacheInvalidationReason);
 })();
 

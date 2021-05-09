@@ -3,7 +3,7 @@ import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
-const profileIMage = '../public/images/profile.png';
+const profileIMage = '/images/profile.png';
 
 const name = 'nishants'
 export const siteTitle = "nishant's blog";

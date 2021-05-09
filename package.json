@@ -8,7 +8,8 @@
     "start": "next start",
     "export": "next export",
     "dev:export": "npm run build && npm run export && http-server ./out",
-    "prod:deploy": "cross-env node ci/scripts/index.js"
+    "prod:deploy": "cross-env node ci/scripts/index.js out ",
+    "dev:deploy": "cross-env node ci/scripts/index.js out ____/dev"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.1.3",
