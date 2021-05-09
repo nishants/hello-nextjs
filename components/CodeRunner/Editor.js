@@ -2,10 +2,13 @@ import {useEffect} from "react";
 import Editor, { DiffEditor, useMonaco, loader } from "@monaco-editor/react";
 import theme from './editor-theme';
 
+const approxLineHeight = 50;
 
 const CodeEditor = ({params}) => {
   const monaco = useMonaco();
-  const snippet = params.children[0].split("\n").slice(1).join("\n");
+  const codeLines = params.children[0].split("\n").slice(1);
+  const snippet = codeLines.join("\n");
+  const height = codeLines.length * approxLineHeight;
   console.log({params, snippet})
 
   useEffect(() => {
@@ -15,15 +18,16 @@ const CodeEditor = ({params}) => {
     }
   }, [monaco]);
 
-  const setEditor = (moncao, editor) => {
-    // debugger;
+  const setEditor = (editor, moncao) => {
+    window.editor = editor;
+    window.moncao = moncao;
     // editor.layout();
   }
 
   //https://monaco-react.surenatoyan.com/
   return (
     <Editor
-      height="90vh"
+      height={height}
       theme="dark"
       defaultLanguage={params.language}
       defaultValue={snippet}
