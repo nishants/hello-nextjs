@@ -8,6 +8,11 @@ import externalLinks from 'remark-external-links';
 import Layout from '../../components/layout';
 import Date from '../../components/date'
 import CodeBlock from "../../components/codeblock"
+import {isRunnerBlock} from "../../components/CodeRunner"
+
+import dynamic from 'next/dynamic'
+const Editor = dynamic(() => import('../../components/CodeRunner/Editor'))
+
 
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import utilStyles from '../../styles/utils.module.css'
@@ -38,6 +43,11 @@ const components = {
       return <code className="inline-code">{children}</code>;
     }
 
+    if(isRunnerBlock({node, children})){
+      return (
+        <Editor/>
+      );
+    }
     const language = className?.replace("language-", "");
 
     return <CodeBlock
