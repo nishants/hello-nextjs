@@ -1,0 +1,21 @@
+steps:
+  # Ensure required node version is installed compatible with nextjs
+  # https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/tool/node-js?view=azure-devops
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '>= 12.16.0'
+
+  - script: |
+      yarn
+    displayName: 'yarn'
+
+  - script: |
+      yarn build
+    displayName: 'yarn build'
+
+  - script: |
+      yarn export
+    displayName: 'yarn export'
+
+  - publish: $(System.DefaultWorkingDirectory)/out
+    artifact: website
