@@ -13,22 +13,23 @@ const CodeEditor = ({params}) => {
   const [isReady, setReady] = useState(false);
   const [output, setOutput] = useState('');
   const [code, setCode] = useState(snippet);
+  const [isRunning, setRunning] = useState(false);
 
   const execute = async () => {
+    setRunning(true);
     const output = await runCode(params.language, code);
-    console.log({error, errorLineNumber, consoleOutput, output})
+    setRunning(false);
+
     const {error, errorLineNumber, consoleOutput} = output;
     if(!error){
       return setOutput(consoleOutput.join("\n"));
     }
-
     setOutput(`Error at line number ${errorLineNumber} : ${error}`);
   }
 
   const onCodeChange = (code, event) => {
     setCode(code);
   }
-  console.log({params, snippet})
 
   useEffect(() => {
     if (monaco) {
@@ -45,8 +46,10 @@ const CodeEditor = ({params}) => {
   }
 
   //https://monaco-react.surenatoyan.com/
+  const opacity = `${isReady  ? isRunning ? "50%" : "100%" : "0"}`;
+  const pointerEvents = `${isRunning ? "none": ""}`
   return (
-    <div style={{opacity: `${isReady ? "100%": "0"}`}}>
+    <div style={{opacity, pointerEvents}}>
       <Editor
         height={height}
         theme="dark"

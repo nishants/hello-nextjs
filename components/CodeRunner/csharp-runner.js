@@ -1,5 +1,5 @@
-// const compilerUrl = 'https://chakra-net.herokuapp.com/compile';
-const compilerUrl = 'https://localhost:5001/compile';
+const compilerUrl = 'https://chakra-net.herokuapp.com/compile';
+// const compilerUrl = 'https://localhost:5001/compile';
 
 const runCsharp = async (code) => {
   const requestBody = {
