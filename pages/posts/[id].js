@@ -42,13 +42,15 @@ const components = {
     if(inline){
       return <code className="inline-code">{children}</code>;
     }
+    const language = className?.replace("language-", "");
 
-    if(isRunnerBlock({node, children})){
+    if(isRunnerBlock({language, node, children})){
       return (
-        <Editor/>
+        <Editor
+          params={{language, node, children}}
+        />
       );
     }
-    const language = className?.replace("language-", "");
 
     return <CodeBlock
       language={language}

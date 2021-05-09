@@ -3,8 +3,10 @@ import Editor, { DiffEditor, useMonaco, loader } from "@monaco-editor/react";
 import theme from './editor-theme';
 
 
-const CodeEditor = () => {
+const CodeEditor = ({params}) => {
   const monaco = useMonaco();
+  const snippet = params.children[0].split("\n").slice(1).join("\n");
+  console.log({params, snippet})
 
   useEffect(() => {
     if (monaco) {
@@ -13,13 +15,20 @@ const CodeEditor = () => {
     }
   }, [monaco]);
 
+  const setEditor = (moncao, editor) => {
+    // debugger;
+    // editor.layout();
+  }
+
   //https://monaco-react.surenatoyan.com/
   return (
     <Editor
       height="90vh"
       theme="dark"
-      defaultLanguage="csharp"
-      defaultValue="// some code"
+      defaultLanguage={params.language}
+      defaultValue={snippet}
+      onMount={setEditor}
+      automaticLayout={true}
       options={{
         minimap: {
           enabled: false,

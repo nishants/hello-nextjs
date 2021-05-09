@@ -6,9 +6,17 @@ date: '2020-11-08'
 
 
 ```javascript
-//code-runner
+//runner
+var string = "runner code";
+console.log(string);
+```
 
-var string = "value";
+
+
+
+
+```javascript
+var string = "non runner code";
 console.log(string);
 ```
 
