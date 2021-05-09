@@ -16,11 +16,16 @@ const CodeEditor = ({params}) => {
 
   const execute = async () => {
     const output = await runCode(params.language, code);
-    setOutput(output);
+    console.log({error, errorLineNumber, consoleOutput, output})
+    const {error, errorLineNumber, consoleOutput} = output;
+    if(!error){
+      return setOutput(consoleOutput.join("\n"));
+    }
+
+    setOutput(`Error at line number ${errorLineNumber} : ${error}`);
   }
 
   const onCodeChange = (code, event) => {
-    console.log({event, code})
     setCode(code);
   }
   console.log({params, snippet})
@@ -58,9 +63,9 @@ const CodeEditor = ({params}) => {
         }}
       />
       <button onClick={execute}>Run</button>
-      <pre className="code-output" style={{height: "100px", width: "100%" , background :"#efefef"}}>
+      <div className="code-output" style={{height: "100px", width: "100%" , background :"#efefef"}}>
         {output}
-      </pre>
+      </div>
     </div>
   );
 };

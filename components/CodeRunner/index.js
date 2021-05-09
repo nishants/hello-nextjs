@@ -1,4 +1,5 @@
 import runJs from './js-runner';
+import runCsharp from './csharp-runner';
 
 const commentSymbols = {
   javascript: "//",
@@ -7,7 +8,8 @@ const commentSymbols = {
 }
 
 const runners = {
-  javascript: runJs
+  javascript: runJs,
+  csharp: runCsharp,
 }
 
 export const isRunnerBlock = ({language, node, children}) => {
@@ -15,7 +17,6 @@ export const isRunnerBlock = ({language, node, children}) => {
   return firstLine.startsWith(`${commentSymbols[language]}runner`);
 }
 
-export const runCode = async (language, code) => {
-  const output = await runners[language](code);
-  return output;
+export const runCode = (language, code) => {
+  return runners[language](code);
 }
